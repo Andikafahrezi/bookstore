@@ -11,14 +11,15 @@ app.use(express.json());
 
 //Middleware for handling cors policy
 //option 1: allow all origin with default of cors(*)
+app.use(cors());
 // option 2: allow all custom origin
-app.use(
-  cors({
-    origin: "http://localhost:5555",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:5555",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
 app.get("/", (request, response) => {
   console.log(request);
   return response.status(234).send("Welcome to Mern Stack");
