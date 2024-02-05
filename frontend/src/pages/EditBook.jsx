@@ -27,7 +27,7 @@ const EditBook = () => {
         alert('An error happened. Please Chack console');
         console.log(error);
       });
-  }, [])
+  }, [id])
   
   const handleEditBook = () => {
     const data = {
