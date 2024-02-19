@@ -8,16 +8,18 @@ router.post("/", async (request, response) => {
     if (
       !request.body.title ||
       !request.body.author ||
-      !request.body.publisherYear
+      !request.body.publisherYear ||
+      !request.body.sinopsis
     ) {
       return response.status(400).send({
-        message: "send all required field: title,author.publisherYear",
+        message: "send all required field: title,author,publisherYear,sinopsis",
       });
     }
     const newBook = {
       title: request.body.title,
       author: request.body.author,
       publisherYear: request.body.publisherYear,
+      sinopsis: request.body.sinopsis
     };
 
     const book = await Book.create(newBook);
@@ -63,7 +65,8 @@ router.put("/:id", async (request, response) => {
     if (
       !request.body.title ||
       !request.body.author ||
-      !request.body.publisherYear
+      !request.body.publisherYear ||
+      !request.body.sinopsis
     ) {
       return response.status(400).send({
         message: "send all required field: title,author.publisherYear",
